@@ -1,6 +1,6 @@
 # Smart Library
 
-#### Smart Gallery is a collection of all the video resources for various topics collected and organized in one place!
+#### Smart Library is a collection of all the video resources for various topics collected and organized in one place!
 
 ## Planned Features
 - Add videos to account by simply inputting the video ID
