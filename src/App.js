@@ -1,23 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import Description from "./components/Description";
+import VideosLibrary from "./components/VideosLibrary";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      className="min-h-screen min-w-screen font-roboto p-10 bg-gradient-to-r
+    from-slate-900 via-purple-900 to-slate-900 flex flex-col gap-10 items-center justify-center"
+    >
+      <Description />
+      <VideosLibrary />
     </div>
   );
 }
