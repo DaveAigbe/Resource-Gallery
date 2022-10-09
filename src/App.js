@@ -1,15 +1,24 @@
 import Description from "./components/Description";
 import VideosLibrary from "./components/VideosLibrary";
+import React, { useState } from "react";
+import { VideoContext } from "./components/VideoContext";
+import Layout from "./components/Layout";
 
 function App() {
+  const [videos, setVideos] = useState([
+    "DmxzHJ3lq6U",
+    "uyI8vBC3Uj0",
+    "26ogBZXeBwc",
+    "s6UAuFzL308",
+  ]);
+
   return (
-    <div
-      className="min-h-screen min-w-screen font-roboto p-10 bg-gradient-to-r
-    from-slate-900 via-purple-900 to-slate-900 flex flex-col gap-10 items-center justify-center"
-    >
-      <Description />
-      <VideosLibrary />
-    </div>
+    <VideoContext.Provider value={[videos, setVideos]}>
+      <Layout>
+        <Description />
+        <VideosLibrary />
+      </Layout>
+    </VideoContext.Provider>
   );
 }
 
