@@ -27,6 +27,7 @@ const VideoForm = () => {
         className={"bg-white p-4 rounded w-full md:w-96 h-14 "}
         placeholder={"ID"}
         minLength={11}
+        required={true}
       />
       <button
         type={"submit"}
