@@ -7,7 +7,13 @@ const VideoForm = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    setVideos([id, ...videos]);
+
+    const updatedAll = {...videos[0], ids: [id, ...videos[0].ids] }
+
+    const updatedVideos = [...videos]
+    updatedVideos[0] = updatedAll
+
+    setVideos(updatedVideos);
     setId("");
   };
 

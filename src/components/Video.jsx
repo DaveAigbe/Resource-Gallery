@@ -11,7 +11,7 @@ const Video = ({id}) => {
     };
 
     return (
-        <div className={'relative'}>
+        <section className={'relative'}>
             <iframe
                 className={
                     'rounded-2xl w-full h-full md:w-330 md:h-186 my-md:w-380 my-md:h-214 lg:w-460 lg:h-259 my-lg:w-560 my-lg:h-315'
@@ -36,7 +36,7 @@ const Video = ({id}) => {
                     icon="akar-icons:circle-plus-fill"
                 />
             </button>
-        </div>
+        </section>
     );
 };
 
