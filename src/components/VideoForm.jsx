@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { VideoContext } from "./VideoContext";
+import { VideoContext } from "../Context/VideoContext";
 
 const VideoForm = () => {
   const [id, setId] = useState("");
