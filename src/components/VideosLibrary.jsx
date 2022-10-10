@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import Video from './Video';
+import VideoThumbnail from './VideoThumbnail';
 import {VideoContext} from '../Context/VideoContext';
 import {CategoryContext} from '../Context/CategoryContext';
 
@@ -13,7 +13,7 @@ const MyComponent = () => {
                 videos[currentCategory].ids.map(id => {
                     return (
                         <React.Fragment key={id}>
-                            <Video id={id}/>
+                            <VideoThumbnail id={id}/>
                         </React.Fragment>
                     )
                 })
