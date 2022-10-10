@@ -1,13 +1,11 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {Icon} from '@iconify/react';
-import {VideoContext} from '../Context/VideoContext';
 
 const Video = ({id}) => {
-    const [videos, setVideos] = useContext(VideoContext);
+    // const [videos, setVideos] = useContext(VideoContext);
 
     const handleDelete = () => {
-        const updatedVideos = videos.all.filter((video) => video !== id);
-        setVideos(updatedVideos);
+
     };
 
     return (

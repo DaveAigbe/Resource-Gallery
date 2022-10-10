@@ -9,14 +9,14 @@ const MyComponent = () => {
 
     return (
         <section className={'flex justify-center gap-6 flex-wrap max-w-8xl'}>
-            {videos
-                .filter(categories => categories.category === currentCategory)
-                .map(category => category.ids.map(id => {
-                        return (
+            {
+                videos[currentCategory].ids.map(id => {
+                    return (
+                        <React.Fragment key={id}>
                             <Video id={id}/>
-                        );
-                    }
-                ))
+                        </React.Fragment>
+                    )
+                })
             }
         </section>
     );

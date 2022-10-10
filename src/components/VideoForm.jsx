@@ -2,23 +2,23 @@ import React, { useContext, useState } from "react";
 import { VideoContext } from "../Context/VideoContext";
 
 const VideoForm = () => {
-  const [id, setId] = useState("");
+  const [newId, setNewId] = useState("");
   const [videos, setVideos] = useContext(VideoContext);
+
+  // Reducer
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
-    const updatedAll = {...videos[0], ids: [id, ...videos[0].ids] }
+    const updatedIds = [newId,...videos.all.ids]
+    const updatedVideos = {...videos, all: {ids: updatedIds}}
 
-    const updatedVideos = [...videos]
-    updatedVideos[0] = updatedAll
-
-    setVideos(updatedVideos);
-    setId("");
+    setVideos(updatedVideos)
+    setNewId('')
   };
 
   const handleInput = (e) => {
-    setId(e.target.value);
+    setNewId(e.target.value);
   };
 
   return (
@@ -27,7 +27,7 @@ const VideoForm = () => {
       onSubmit={(e) => handleFormSubmit(e)}
     >
       <input
-        value={id}
+        value={newId}
         onChange={(e) => handleInput(e)}
         type="text"
         className={"bg-white p-4 rounded w-full md:w-96 h-14 "}

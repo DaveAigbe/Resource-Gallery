@@ -5,8 +5,8 @@ const CategoryButton = ({category}) => {
     const [, setCurrentCategory] = useContext(CategoryContext);
 
     const handleCategoryClick = () => {
-        setCurrentCategory(category)
-    }
+        setCurrentCategory(category);
+    };
 
     return (
         <button

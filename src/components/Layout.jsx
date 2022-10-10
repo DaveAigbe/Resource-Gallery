@@ -15,10 +15,12 @@ const Layout = ({children}) => {
             >
                 <section className={'absolute top-5 text xl flex gap-3'}>
                     {
-                        videos.map(categories => {
+                        Object.keys(videos).map(category => {
                             return (
-                                <CategoryButton category={categories.category}/>
-                            );
+                                <React.Fragment key={category}>
+                                    <CategoryButton category={category}/>
+                                </React.Fragment>
+                            )
                         })
                     }
                 </section>
