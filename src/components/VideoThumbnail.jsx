@@ -2,7 +2,6 @@ import React from 'react';
 import {Icon} from '@iconify/react';
 
 const VideoThumbnail = ({id}) => {
-    // const [videos, setVideos] = useContext(VideoContext);
 
     const handleDelete = () => {
 
