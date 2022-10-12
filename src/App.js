@@ -1,8 +1,8 @@
 import Description from './components/Description';
 import VideosLibrary from './components/VideosLibrary';
 import React, {useState} from 'react';
-import {VideoContext} from './Context/VideoContext';
 import Layout from './components/Layout';
+import {Context} from './context/Context';
 
 function App() {
     const [videos, setVideos] = useState({
@@ -13,14 +13,15 @@ function App() {
             ids: ['7wzMMBRVrfw', 'novnyCaa7To', 'rtR4s626ebE', '6OhMbf2v_jI']
         }
     });
+    const [currentCategory, setCurrentCategory] = useState('all');
 
     return (
-        <VideoContext.Provider value={[videos, setVideos]}>
+        <Context.Provider value={{videos, setVideos, currentCategory, setCurrentCategory}}>
             <Layout>
                 <Description/>
                 <VideosLibrary/>
             </Layout>
-        </VideoContext.Provider>
+        </Context.Provider>
     );
 }
 

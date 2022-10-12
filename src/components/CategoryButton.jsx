@@ -1,8 +1,8 @@
 import React, {useContext} from 'react';
-import {CategoryContext} from '../Context/CategoryContext';
+import {Context} from '../context/Context';
 
 const CategoryButton = ({category}) => {
-    const [, setCurrentCategory] = useContext(CategoryContext);
+    const {setCurrentCategory} = useContext(Context);
 
     const handleCategoryClick = () => {
         setCurrentCategory(category);

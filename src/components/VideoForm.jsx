@@ -1,9 +1,9 @@
 import React, {useContext, useRef} from 'react';
-import {VideoContext} from '../Context/VideoContext';
+import {Context} from '../context/Context';
 
 const VideoForm = () => {
     const idRef = useRef();
-    const [videos, setVideos] = useContext(VideoContext);
+    const {videos, setVideos} = useContext(Context);
 
     // Reducer
 
