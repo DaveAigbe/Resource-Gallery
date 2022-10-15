@@ -1,5 +1,5 @@
 import React from "react";
-import VideoForm from "./VideoForm";
+import VideoForm from "../Forms/VideoForm";
 import { Icon } from "@iconify/react";
 
 const Description = () => {

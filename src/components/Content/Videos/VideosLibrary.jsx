@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import VideoThumbnail from './VideoThumbnail';
-import {Context} from '../context/Context';
+import {Context} from '../../../context/Context';
 
 const MyComponent = () => {
     const {videos, currentCategory} = useContext(Context);

@@ -1,5 +1,5 @@
 import React, {useContext, useRef} from 'react';
-import {Context} from '../context/Context';
+import {Context} from '../../context/Context';
 
 const VideoForm = () => {
     const idRef = useRef();

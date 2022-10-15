@@ -1,7 +1,7 @@
-import Description from './components/Description';
-import VideosLibrary from './components/VideosLibrary';
+import Description from './components/Content/Description';
+import VideosLibrary from './components/Content/Videos/VideosLibrary';
 import React, {useState} from 'react';
-import Layout from './components/Layout';
+import Layout from './components/Layout/Layout';
 import {Context} from './context/Context';
 
 function App() {
@@ -14,9 +14,14 @@ function App() {
         }
     });
     const [currentCategory, setCurrentCategory] = useState('all');
+    const [toggleMenu, setToggleMenu] = useState(false);
+
+    const handleCategoryClick = (category) => {
+        setCurrentCategory(category);
+    };
 
     return (
-        <Context.Provider value={{videos, setVideos, currentCategory, setCurrentCategory}}>
+        <Context.Provider value={{videos, setVideos, currentCategory, setCurrentCategory, toggleMenu, setToggleMenu, handleCategoryClick}}>
             <Layout>
                 <Description/>
                 <VideosLibrary/>
