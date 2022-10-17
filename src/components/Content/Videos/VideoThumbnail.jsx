@@ -20,7 +20,7 @@ const VideoThumbnail = ({id}) => {
     return (
         <section className={'relative'}>
             <img onClick={handleActive} className={
-                'cursor-pointer rounded-2xl md:w-330 md:h-186 my-md:w-380 my-md:h-214 lg:w-460 lg:h-259 my-lg:w-560 my-lg:h-315'}
+                'cursor-pointer rounded-2xl md:w-330 md:h-186 c-md:w-380 c-md:h-214 lg:w-460 lg:h-259 c-xl:w-560 c-xl:h-315'}
                  src={`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`} alt="Youtube video thumbnail"
             />
             <section>

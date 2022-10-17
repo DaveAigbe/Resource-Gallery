@@ -8,7 +8,7 @@ const Description = () => {
       <section>
         <div
           className={
-            "text-4xl sm:text-5xl md:text-6xl text-white font-bold mb-14 flex gap-4 justify-center "
+            "tracking-wide text-4xl sm:text-5xl md:text-6xl text-white font-bold mb-14 flex gap-4 justify-center "
           }
         >
           <h1>Smart Library</h1>

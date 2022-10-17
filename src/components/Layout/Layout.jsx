@@ -9,7 +9,7 @@ const Layout = ({children}) => {
         <div
             className={`min-h-screen min-w-screen font-roboto p-10 flex flex-col gap-10 items-center justify-center`}
             style={{
-                backgroundImage: 'url(\'/images/stacked-waves-purple-shadow.svg\')',
+                backgroundImage: 'url(\'/images/blob-scene-haikeiV2.svg\')',
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat'
             }}
