@@ -15,7 +15,7 @@ const VideoForm = () => {
 
       setVideos(updatedVideos);
     } else {
-      console.log("Video already exists!");
+      alert("Video already exists!");
     }
 
     idRef.current.value = "";
