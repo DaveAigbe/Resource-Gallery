@@ -15,24 +15,6 @@ const VideoThumbnail = ({ id }) => {
     });
   };
 
-  // {
-  //     all: {
-  //         ids: [
-  //             "DmxzHJ3lq6U",
-  //             "uyI8vBC3Uj0",
-  //             "26ogBZXeBwc",
-  //             "s6UAuFzL308",
-  //             "7wzMMBRVrfw",
-  //             "novnyCaa7To",
-  //             "rtR4s626ebE",
-  //             "6OhMbf2v_jI",
-  //         ],
-  //     },
-  //     react: {
-  //         ids: ["7wzMMBRVrfw", "novnyCaa7To", "rtR4s626ebE", "6OhMbf2v_jI"],
-  //     },
-  // }
-
   const handleDelete = () => {
     console.log(id);
     const updatedVideos = { ...videos };

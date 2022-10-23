@@ -9,11 +9,15 @@ const VideoForm = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    if (!videos.all.ids.includes(idRef.current.value)) {
+      const updatedIds = [idRef.current.value, ...videos.all.ids];
+      const updatedVideos = { ...videos, all: { ids: updatedIds } };
 
-    const updatedIds = [idRef.current.value, ...videos.all.ids];
-    const updatedVideos = { ...videos, all: { ids: updatedIds } };
+      setVideos(updatedVideos);
+    } else {
+      console.log("Video already exists!");
+    }
 
-    setVideos(updatedVideos);
     idRef.current.value = "";
   };
 
