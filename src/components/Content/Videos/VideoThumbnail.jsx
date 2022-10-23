@@ -1,16 +1,55 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Icon } from "@iconify/react";
 import { Video } from "./Video";
+import { Context } from "../../../context/Context";
 
 const VideoThumbnail = ({ id }) => {
   // Needs to be local state so that react will not re-render entire video library which will give each video its own overlay
   // Effectively giving each thumbnail its own state will tell react that only this thumbnail has changed, not the rest
   const [active, setActive] = useState(false);
+  const { videos, setVideos, currentCategory } = useContext(Context);
 
   const handleActive = () => {
     setActive((prevState) => {
       return !prevState;
     });
+  };
+
+  // {
+  //     all: {
+  //         ids: [
+  //             "DmxzHJ3lq6U",
+  //             "uyI8vBC3Uj0",
+  //             "26ogBZXeBwc",
+  //             "s6UAuFzL308",
+  //             "7wzMMBRVrfw",
+  //             "novnyCaa7To",
+  //             "rtR4s626ebE",
+  //             "6OhMbf2v_jI",
+  //         ],
+  //     },
+  //     react: {
+  //         ids: ["7wzMMBRVrfw", "novnyCaa7To", "rtR4s626ebE", "6OhMbf2v_jI"],
+  //     },
+  // }
+
+  const handleDelete = () => {
+    console.log(id);
+    const updatedVideos = { ...videos };
+
+    if (currentCategory === "all") {
+      for (const [category] of Object.entries(updatedVideos)) {
+        updatedVideos[category].ids = updatedVideos[category].ids.filter(
+          (currId) => currId !== id
+        );
+      }
+    } else {
+      updatedVideos[currentCategory].ids = updatedVideos[
+        currentCategory
+      ].ids.filter((currId) => currId !== id);
+    }
+
+    setVideos(updatedVideos);
   };
 
   return (
@@ -26,6 +65,7 @@ const VideoThumbnail = ({ id }) => {
       <section>
         <button>
           <Icon
+            onClick={handleDelete}
             className={
               "absolute top-2 right-2 text-white text-2xl hover:text-red-600 transition ease-in-out duration-300"
             }
