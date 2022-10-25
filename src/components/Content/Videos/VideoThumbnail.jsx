@@ -35,7 +35,11 @@ const VideoThumbnail = ({ id }) => {
   };
 
   return (
-    <section className={"relative"}>
+    <section
+      className={`${
+        !active && "hover:scale-105 transition-all ease-in-out"
+      } relative`}
+    >
       <img
         onClick={handleActive}
         className={
