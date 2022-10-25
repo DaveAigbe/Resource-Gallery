@@ -1,6 +1,8 @@
 # Smart Library
 
 #### Smart Library is a collection of all the video resources for various topics collected and organized in one place!
+![image](https://user-images.githubusercontent.com/90881175/197888425-a853087c-adbe-45f5-aace-c479cd0c22fb.png)
+
 
 ## Planned Features
 
