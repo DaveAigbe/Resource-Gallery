@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Context } from "../../../context/Context";
 import { Icon } from "@iconify/react";
-import CategoryButton from "../CategoryButton";
+import CategoryButton from "../Categories/CategoryButton";
 
 export const MenuList = ({ handleMenuClick }) => {
   const { videos, toggleMenu, setToggleMenu } = useContext(Context);

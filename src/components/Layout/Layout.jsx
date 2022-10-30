@@ -1,6 +1,6 @@
 import React from "react";
 import { MobileMenu } from "./Mobile Menu/MobileMenu";
-import { CategoriesList } from "./CategoriesList";
+import { CategoriesList } from "./Categories/CategoriesList";
 import { Profile } from "./Profile";
 
 const Layout = ({ children }) => {

@@ -1,7 +1,8 @@
 import React, { useContext, useState } from "react";
-import { Icon } from "@iconify/react";
 import { Video } from "./Video";
 import { Context } from "../../../context/Context";
+import { AddCategoryButton } from "./Buttons/AddCategoryButton";
+import { DeleteVideoButton } from "./Buttons/DeleteVideoButton";
 
 const VideoThumbnail = ({ id }) => {
   // Needs to be local state so that react will not re-render entire video library which will give each video its own overlay
@@ -49,23 +50,8 @@ const VideoThumbnail = ({ id }) => {
         alt="Youtube video thumbnail"
       />
       <section>
-        <button>
-          <Icon
-            onClick={handleDelete}
-            className={
-              "absolute top-2 right-2 text-white text-2xl hover:text-red-600 transition ease-in-out duration-300"
-            }
-            icon="akar-icons:circle-x-fill"
-          />
-        </button>
-        <button>
-          <Icon
-            className={
-              "absolute top-10 right-2 text-white text-2xl hover:text-green-600 transition ease-in-out duration-300"
-            }
-            icon="akar-icons:circle-plus-fill"
-          />
-        </button>
+        <DeleteVideoButton handleDelete={handleDelete} />
+        <AddCategoryButton />
       </section>
       {active && <Video id={id} handleActive={handleActive} />}
     </section>

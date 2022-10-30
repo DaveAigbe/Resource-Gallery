@@ -5,7 +5,7 @@ export const Video = ({ id, handleActive }) => {
     <div
       onClick={handleActive}
       className={
-        "fixed backdrop-blur-md bg-gray-600/25 h-screen w-screen flex justify-center items-center fixed z-10 top-0 right-0"
+        "backdrop-blur-md bg-gray-600/25 h-screen w-screen flex justify-center items-center fixed z-10 top-0 right-0"
       }
     >
       <iframe
