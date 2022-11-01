@@ -7,6 +7,7 @@ module.exports = {
         roboto: ["Roboto", "sans-serif"],
       },
       width: {
+        1300: "81.25rem",
         900: "56.25rem",
         700: "43.75rem",
         560: "35rem",
@@ -15,6 +16,7 @@ module.exports = {
         330: "20.625rem",
       },
       height: {
+        731: "45.703rem",
         506: "31.641rem",
         394: "24.609rem",
         315: "19.688rem",
@@ -29,6 +31,7 @@ module.exports = {
         "c-md": "900px",
         "c-lg": "1000px",
         "c-xl": "1224px",
+        "c-xxl": "1750px",
       },
       maxWidth: {
         "8xl": "113rem",

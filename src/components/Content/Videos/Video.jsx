@@ -10,7 +10,7 @@ export const Video = ({ id, handleActive }) => {
     >
       <iframe
         className={
-          "rounded-2xl c-xxs:w-330 c-xxs:h-186 c-xs:w-460 c-xs:h-259 c-sm:w-560 c-sm:h-315 c-lg:w-700 c-lg:h-394 c-xl:w-900 c-xl:h-506"
+          "rounded-2xl c-xxs:w-330 c-xxs:h-186 c-xs:w-460 c-xs:h-259 c-sm:w-560 c-sm:h-315 c-lg:w-700 c-lg:h-394 c-xl:w-900 c-xl:h-506 c-xxl:w-1300 c-xxl:h-731"
         }
         src={`https://www.youtube.com/embed/${id}`}
         title="YouTube video player"
