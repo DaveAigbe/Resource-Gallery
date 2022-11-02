@@ -5,7 +5,7 @@ import { CategoryForm } from "./CategoryForm";
 import { NewCategoryButton } from "./NewCategoryButton";
 
 export const CategoriesList = () => {
-  const { videos } = useContext(Context);
+  const { videos, currentCategory } = useContext(Context);
   const [showForm, setShowForm] = useState(false);
 
   const handleShowCategoryForm = () => {
@@ -21,7 +21,11 @@ export const CategoriesList = () => {
       {Object.keys(videos).map((category) => {
         return (
           <React.Fragment key={category}>
-            <CategoryButton category={category} />
+            <CategoryButton
+              category={category}
+              count={videos[category].ids.length}
+              isCurrentCategory={category === currentCategory}
+            />
           </React.Fragment>
         );
       })}

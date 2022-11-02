@@ -10,7 +10,7 @@ import { LoadingLibrary } from "./components/Content/LoadingLibrary";
 function App() {
   const [videos, setVideos] = useState(null);
   const [currentCategory, setCurrentCategory] = useState("all");
-  const [toggleMenu, setToggleMenu] = useState(false);
+  const [categoryActive, setCategoryActive] = useState(false);
 
   useEffect(() => {
     handleLocalStorage("categories", videos, defaultVideos, setVideos);
@@ -27,8 +27,8 @@ function App() {
         setVideos,
         currentCategory,
         setCurrentCategory,
-        toggleMenu,
-        setToggleMenu,
+        categoryActive,
+        setCategoryActive,
         handleCategoryClick,
       }}
     >

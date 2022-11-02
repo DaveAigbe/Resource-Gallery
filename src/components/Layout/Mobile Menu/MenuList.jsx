@@ -4,12 +4,12 @@ import { Icon } from "@iconify/react";
 import CategoryButton from "../Categories/CategoryButton";
 
 export const MenuList = ({ handleMenuClick }) => {
-  const { videos, toggleMenu, setToggleMenu } = useContext(Context);
+  const { videos, categoryActive, setCategoryActive } = useContext(Context);
 
   return (
     <aside
       className={`${
-        toggleMenu ? "" : "hidden"
+        categoryActive ? "" : "hidden"
       } w-1/2 fixed z-20 top-0 right-0 z-10`}
       aria-label="Sidebar"
     >
@@ -20,7 +20,7 @@ export const MenuList = ({ handleMenuClick }) => {
               Categories
             </div>
             <Icon
-              onClick={() => setToggleMenu(!toggleMenu)}
+              onClick={() => setCategoryActive(!categoryActive)}
               className={"text-lg"}
               icon="emojione-monotone:heavy-multiplication-x"
             />

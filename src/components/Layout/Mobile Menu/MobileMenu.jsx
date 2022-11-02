@@ -5,18 +5,18 @@ import { MenuBackground } from "./MenuBackground";
 import { MenuList } from "./MenuList";
 
 export const MobileMenu = () => {
-  const { toggleMenu, setToggleMenu, handleCategoryClick } =
+  const { categoryActive, setCategoryActive, handleCategoryClick } =
     useContext(Context);
 
   const handleMenuClick = (category) => {
     handleCategoryClick(category);
-    setToggleMenu(!toggleMenu);
+    setCategoryActive(!categoryActive);
   };
 
   return (
     <>
       <Icon
-        onClick={() => setToggleMenu(!toggleMenu)}
+        onClick={() => setCategoryActive(!categoryActive)}
         className={" sm:hidden text-5xl text-white absolute top-2.5 right-2"}
         icon="eva:menu-fill"
       />
