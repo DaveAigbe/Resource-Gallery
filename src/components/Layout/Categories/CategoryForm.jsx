@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useRef } from "react";
 import { Context } from "../../../context/Context";
 import { CloseVideoFormButton } from "../../Forms/Buttons/CloseVideoFormButton";
 
@@ -19,14 +19,6 @@ export const CategoryForm = ({ handleShowCategoryForm }) => {
     }
   };
 
-  const focusInput = () => {
-    inputRef.current.focus();
-  };
-
-  useEffect(() => {
-    focusInput();
-  }, []);
-
   return (
     <div
       className={
@@ -37,7 +29,6 @@ export const CategoryForm = ({ handleShowCategoryForm }) => {
         className={"relative bg-purple-300 rounded p-2.5 z-50"}
         onSubmit={handleSubmit}
       >
-        <CloseVideoFormButton handleShowCategoryForm={handleShowCategoryForm} />
         <label
           className={"text-gray-700 block text-sm mb-2"}
           htmlFor="category"
@@ -53,14 +44,20 @@ export const CategoryForm = ({ handleShowCategoryForm }) => {
             }
             type="text"
             placeholder={"Enter category name..."}
+            autoComplete={"off"}
+            autoFocus={true}
           />
           <button
             className={
               "text-white rounded bg-purple-600 p-2 px-3 font-bold shadow-md tracking-wide transition ease-in-out hover:bg-purple-700"
             }
+            type={"submit"}
           >
             Create
           </button>
+          <CloseVideoFormButton
+            handleShowCategoryForm={handleShowCategoryForm}
+          />
         </div>
       </form>
     </div>
