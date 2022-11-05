@@ -1,6 +1,6 @@
 import { useContext, useRef } from "react";
-import { Context } from "../../../context/Context";
-import { CloseVideoFormButton } from "../../Forms/Buttons/CloseVideoFormButton";
+import { Context } from "../../../../context/Context";
+import { CloseCategoryFormButton } from "./Buttons/CloseCategoryFormButton";
 
 export const CategoryForm = ({ handleShowCategoryForm }) => {
   const { videos, setVideos } = useContext(Context);
@@ -55,7 +55,7 @@ export const CategoryForm = ({ handleShowCategoryForm }) => {
           >
             Create
           </button>
-          <CloseVideoFormButton
+          <CloseCategoryFormButton
             handleShowCategoryForm={handleShowCategoryForm}
           />
         </div>

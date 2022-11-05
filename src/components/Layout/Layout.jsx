@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import { MobileMenu } from "./Mobile Menu/MobileMenu";
-import { CategoriesList } from "./Categories/CategoriesList";
+import { MenuIcon } from "./Mobile Menu/MenuIcon";
+import { CategoriesMenu } from "../Header/Categories Menu/CategoriesMenu";
 import { Profile } from "./Profile";
 import { Context } from "../../context/Context";
 
@@ -18,8 +18,8 @@ const Layout = ({ children }) => {
     >
       {videos ? (
         <>
-          <CategoriesList />
-          <MobileMenu />
+          <CategoriesMenu />
+          <MenuIcon />
         </>
       ) : (
         <></>

@@ -1,10 +1,10 @@
 import { Icon } from "@iconify/react";
 import React, { useContext } from "react";
 import { Context } from "../../../context/Context";
-import { MenuBackground } from "./MenuBackground";
-import { MenuList } from "./MenuList";
+import { CategoriesMenuBackground } from "./CategoriesMenuBackground";
+import { CategoriesMenu } from "./CategoriesMenu";
 
-export const MobileMenu = () => {
+export const MenuIcon = () => {
   const { categoryActive, setCategoryActive, handleCategoryClick } =
     useContext(Context);
 
@@ -20,8 +20,8 @@ export const MobileMenu = () => {
         className={" sm:hidden text-5xl text-white absolute top-2.5 right-2"}
         icon="eva:menu-fill"
       />
-      <MenuBackground />
-      <MenuList handleMenuClick={handleMenuClick} />
+      <CategoriesMenuBackground />
+      <CategoriesMenu handleMenuClick={handleMenuClick} />
     </>
   );
 };

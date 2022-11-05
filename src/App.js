@@ -1,4 +1,4 @@
-import Description from "./components/Content/Description";
+import Description from "./components/Header/Introduction/Description";
 import VideosLibrary from "./components/Content/Videos/VideosLibrary";
 import React, { useEffect, useState } from "react";
 import Layout from "./components/Layout/Layout";

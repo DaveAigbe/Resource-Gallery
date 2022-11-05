@@ -1,7 +1,7 @@
 import { Icon } from "@iconify/react";
 import React from "react";
 
-export const CloseVideoFormButton = ({ handleShowCategoryForm }) => {
+export const CloseCategoryFormButton = ({ handleShowCategoryForm }) => {
   return (
     <button
       className={"absolute top-2 right-1 hover:animate-spin"}

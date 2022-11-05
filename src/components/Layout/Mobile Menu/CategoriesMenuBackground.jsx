@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Context } from "../../../context/Context";
 
-export const MenuBackground = () => {
+export const CategoriesMenuBackground = () => {
   const { categoryActive, setCategoryActive } = useContext(Context);
   return (
     <div

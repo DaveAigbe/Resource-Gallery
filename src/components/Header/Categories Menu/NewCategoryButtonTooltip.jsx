@@ -1,4 +1,4 @@
-export const CategoriesTooltip = () => {
+export const NewCategoryButtonTooltip = () => {
   return (
     <span
       className={

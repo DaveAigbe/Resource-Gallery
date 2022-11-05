@@ -5,7 +5,7 @@ export const NewCategoryButton = ({ handleShowCategoryForm }) => {
   return (
     <button title={"Add Category"}>
       {/*<div className={"container invisible hover:visible relative z-10"}>*/}
-      {/*  <CategoriesTooltip />*/}
+      {/*  <NewCategoryButtonTooltip />*/}
       {/*</div>*/}
       <Icon
         onClick={handleShowCategoryForm}

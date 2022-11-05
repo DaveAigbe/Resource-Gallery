@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../../../context/Context";
-import CategoryButton from "./CategoryButton";
-import { CategoryForm } from "./CategoryForm";
-import { NewCategoryButton } from "./NewCategoryButton";
+import CategoryButton from "./Buttons/CategoryButton";
+import { CategoryForm } from "./Forms/CategoryForm";
+import { NewCategoryButton } from "./Buttons/NewCategoryButton";
 
-export const CategoriesList = () => {
+export const CategoriesMenu = () => {
   const { videos, currentCategory } = useContext(Context);
   const [showForm, setShowForm] = useState(false);
 
