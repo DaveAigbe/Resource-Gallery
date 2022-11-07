@@ -38,12 +38,6 @@ export const AddVideoCategoriesForm = ({
 
   return (
     <FormBackground>
-      <button
-        className={"bg-yellow-300 rounded animate-pulse p-8"}
-        onClick={() => console.log(categoriesChecked)}
-      >
-        Test
-      </button>
       <form
         className={"relative bg-purple-300 rounded py-2.5 pl-2.5 pr-16 z-20"}
         onSubmit={handleAddVideoCategoriesForm}
