@@ -1,17 +1,20 @@
 import React, { useContext, useState } from "react";
 import { Video } from "./Video";
 import { Context } from "../../../context/Context";
-import { AddCategoryButton } from "./Buttons/AddCategoryButton";
+import { AddVideoCategoriesButton } from "./Buttons/AddVideoCategoriesButton";
 import { DeleteVideoButton } from "./Buttons/DeleteVideoButton";
+import { AddVideoCategoriesForm } from "./Forms/AddVideoCategoriesForm";
 
 const VideoThumbnail = ({ id }) => {
   // Needs to be local state so that react will not re-render entire video library which will give each video its own overlay
   // Effectively giving each thumbnail its own state will tell react that only this thumbnail has changed, not the rest
-  const [active, setActive] = useState(false);
+  const [videoPlaying, setVideoPlaying] = useState(false);
   const { videos, setVideos, currentCategory } = useContext(Context);
+  const [showForm, setShowForm] = useState(false);
+  const [categoriesChecked, setCategoriesChecked] = useState({});
 
   const handleActive = () => {
-    setActive((prevState) => {
+    setVideoPlaying((prevState) => {
       return !prevState;
     });
   };
@@ -35,10 +38,33 @@ const VideoThumbnail = ({ id }) => {
     setVideos(updatedVideos);
   };
 
+  const handleAddVideoCategoriesForm = (e) => {
+    e.preventDefault();
+    for (const [key, val] of Object.entries(categoriesChecked)) {
+      if (val) {
+        if (!videos?.[key].ids.includes(id)) {
+          const updatedIds = [id, ...videos[key].ids];
+          const updatedVideos = { ...videos, [key]: { ids: updatedIds } };
+
+          setVideos(updatedVideos);
+        }
+      }
+    }
+    handleShowVideoCategoriesForm();
+  };
+
+  const handleShowVideoCategoriesForm = () => {
+    setShowForm((prevState) => {
+      return !prevState;
+    });
+  };
+
   return (
     <section
       className={`${
-        !active && "hover:scale-105 transition-all ease-in-out"
+        !videoPlaying &&
+        !showForm &&
+        "hover:scale-105 transition-all ease-in-out"
       } relative`}
     >
       <img
@@ -51,9 +77,20 @@ const VideoThumbnail = ({ id }) => {
       />
       <section>
         <DeleteVideoButton handleDelete={handleDelete} />
-        <AddCategoryButton />
+        <AddVideoCategoriesButton
+          handleShowVideoCategoriesForm={handleShowVideoCategoriesForm}
+        />
       </section>
-      {active && <Video id={id} handleActive={handleActive} />}
+      {videoPlaying && <Video id={id} handleActive={handleActive} />}
+      {showForm && (
+        <AddVideoCategoriesForm
+          handleShowVideoCategoriesForm={handleShowVideoCategoriesForm}
+          handleAddVideoCategoriesForm={handleAddVideoCategoriesForm}
+          categoriesChecked={categoriesChecked}
+          setCategoriesChecked={setCategoriesChecked}
+          id={id}
+        />
+      )}
     </section>
   );
 };

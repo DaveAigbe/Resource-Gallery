@@ -1,14 +1,14 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../../../context/Context";
 import CategoryButton from "./Buttons/CategoryButton";
-import { CategoryForm } from "./Forms/CategoryForm";
+import { NewCategoryForm } from "./Forms/NewCategoryForm";
 import { NewCategoryButton } from "./Buttons/NewCategoryButton";
 
 export const CategoriesMenu = () => {
   const { videos, currentCategory } = useContext(Context);
   const [showForm, setShowForm] = useState(false);
 
-  const handleShowCategoryForm = () => {
+  const handleShowNewCategoryForm = () => {
     setShowForm((prevState) => {
       return !prevState;
     });
@@ -29,9 +29,9 @@ export const CategoriesMenu = () => {
           </React.Fragment>
         );
       })}
-      <NewCategoryButton handleShowCategoryForm={handleShowCategoryForm} />
+      <NewCategoryButton handleShowCategoryForm={handleShowNewCategoryForm} />
       {showForm && (
-        <CategoryForm handleShowCategoryForm={handleShowCategoryForm} />
+        <NewCategoryForm handleShowCategoryForm={handleShowNewCategoryForm} />
       )}
     </section>
   );

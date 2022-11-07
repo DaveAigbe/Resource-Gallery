@@ -1,8 +1,10 @@
 import { useContext, useRef } from "react";
 import { Context } from "../../../../context/Context";
-import { CloseCategoryFormButton } from "./Buttons/CloseCategoryFormButton";
+import { CloseFormButton } from "../../../Layout/Buttons/CloseFormButton";
+import { FormBackground } from "../../../Background/FormBackground";
+import { SubmitFormButton } from "../../../Layout/Buttons/SubmitFormButton";
 
-export const CategoryForm = ({ handleShowCategoryForm }) => {
+export const NewCategoryForm = ({ handleShowCategoryForm }) => {
   const { videos, setVideos } = useContext(Context);
   const inputRef = useRef();
 
@@ -20,11 +22,7 @@ export const CategoryForm = ({ handleShowCategoryForm }) => {
   };
 
   return (
-    <div
-      className={
-        "bg-gray-600/30 h-screen w-screen flex justify-center items-center fixed top-0 right-0 z-10"
-      }
-    >
+    <FormBackground>
       <form
         className={"relative bg-purple-300 rounded p-2.5 z-50"}
         onSubmit={handleSubmit}
@@ -47,19 +45,10 @@ export const CategoryForm = ({ handleShowCategoryForm }) => {
             autoComplete={"off"}
             autoFocus={true}
           />
-          <button
-            className={
-              "text-white rounded bg-purple-600 p-2 px-3 font-bold shadow-md tracking-wide transition ease-in-out hover:bg-purple-700"
-            }
-            type={"submit"}
-          >
-            Create
-          </button>
-          <CloseCategoryFormButton
-            handleShowCategoryForm={handleShowCategoryForm}
-          />
+          <SubmitFormButton text={"Create"} />
+          <CloseFormButton handleShowForm={handleShowCategoryForm} />
         </div>
       </form>
-    </div>
+    </FormBackground>
   );
 };

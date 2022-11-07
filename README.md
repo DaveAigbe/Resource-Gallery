@@ -7,13 +7,13 @@
 
 ## Features
 - Add videos to an account by simply inputting the video ID
-- Watch videos without leaving the site, allows for more focused learning
+- Watch videos without leaving the site, allows for more focused learning without the distractions of other videos
 - Fully Responsive Layout
 
 ## Planned Features
 
-- Optionally add tags on each video to organize videos by category
-- Categorize videos by topic or name
+- Optionally add categories on each video to organize videos by category
+- Add new category sections by topic, that store videos
 - Login capability
 - Various sorting methods, such as by date or length of video
 - Video IDs, user info, etc... will be hooked up to API connected to database with authentication
