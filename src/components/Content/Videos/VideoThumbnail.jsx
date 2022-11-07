@@ -40,12 +40,21 @@ const VideoThumbnail = ({ id }) => {
 
   const handleAddVideoCategoriesForm = (e) => {
     e.preventDefault();
-    for (const [key, val] of Object.entries(categoriesChecked)) {
-      if (val) {
-        if (!videos?.[key].ids.includes(id)) {
-          const updatedIds = [id, ...videos[key].ids];
-          const updatedVideos = { ...videos, [key]: { ids: updatedIds } };
+    const updatedVideos = { ...videos };
 
+    for (const [category, val] of Object.entries(categoriesChecked)) {
+      const currentIds = updatedVideos?.[category].ids;
+
+      if (val) {
+        if (!currentIds.includes(id)) {
+          updatedVideos[category].ids = [id, ...updatedVideos[category].ids];
+          setVideos(updatedVideos);
+        }
+      } else {
+        if (currentIds.includes(id)) {
+          updatedVideos[category].ids = currentIds.filter(
+            (currId) => currId !== id
+          );
           setVideos(updatedVideos);
         }
       }
