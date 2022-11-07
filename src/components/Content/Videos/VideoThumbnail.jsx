@@ -85,7 +85,10 @@ const VideoThumbnail = ({ id }) => {
         alt="Youtube video thumbnail"
       />
       <section>
-        <DeleteVideoButton handleDelete={handleDelete} />
+        <DeleteVideoButton
+          handleDelete={handleDelete}
+          currentCategory={currentCategory}
+        />
         <AddVideoCategoriesButton
           handleShowVideoCategoriesForm={handleShowVideoCategoriesForm}
         />

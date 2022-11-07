@@ -4,7 +4,7 @@ import React from "react";
 export const AddVideoCategoriesButton = ({ handleShowVideoCategoriesForm }) => {
   return (
     <button
-      title={"Add Video to Categories Menu"}
+      title={`Add or remove video from categories.`}
       onClick={handleShowVideoCategoriesForm}
     >
       <Icon
