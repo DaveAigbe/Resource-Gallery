@@ -1,5 +1,6 @@
 {
   "name": "resource-gallery",
+  "author": "Dave Jr.",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

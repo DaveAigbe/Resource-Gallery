@@ -9,17 +9,25 @@
 - Add videos to an account by simply inputting the video ID
 - Watch videos without leaving the site, allows for more focused learning without the distractions of other videos
 - Fully Responsive Layout
+- Add new 'genres' which store related videos
+- Add and remove videos from existing genres or from the library completely
 
 ## Planned Features
 
-- Optionally add categories on each video to organize videos by category
-- Add new category sections by topic, that store videos
-- Login capability
+- Login and sign-up capability
+- User authentication
 - Various sorting methods, such as by date or length of video
-- Video IDs, user info, etc... will be hooked up to API connected to database with authentication
+- NestJS API in REST or GraphQL.
+- Typescript overhaul
+- 'Genre' routing
+- Cohesive animations
 
 ## Tech-Stack
 - React
 - HTML
 - CSS
 - Tailwind
+## Packages
+- Yup: Schema Builder and validation
+- React-router: Routing
+- React-hook-forms: Forms Library

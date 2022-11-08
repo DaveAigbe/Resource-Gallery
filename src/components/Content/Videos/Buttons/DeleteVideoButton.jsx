@@ -5,7 +5,7 @@ export const DeleteVideoButton = ({ handleDelete, currentCategory }) => {
   return (
     <button
       title={`Delete video from ${
-        currentCategory === "all" ? "everything." : currentCategory
+        currentCategory === "all" ? "entire library." : currentCategory
       }`}
     >
       <Icon
