@@ -28,6 +28,6 @@
 - CSS
 - Tailwind
 ## Packages
-- Yup: Schema Builder and validation
+- Yup: Schema Builder and form input validation
 - React-router: Routing
-- React-hook-forms: Forms Library
+- React-hook-forms: Forms library
