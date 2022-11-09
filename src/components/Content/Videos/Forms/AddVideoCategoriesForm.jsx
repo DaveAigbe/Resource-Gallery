@@ -4,6 +4,7 @@ import { Checkbox } from "./Checkbox";
 import { Fragment, useContext, useEffect } from "react";
 import { Context } from "../../../../context/Context";
 import { SubmitFormButton } from "../../../Layout/Buttons/SubmitFormButton";
+import { useForm } from "react-hook-form";
 
 export const AddVideoCategoriesForm = ({
   handleAddVideoCategoriesForm,
@@ -13,6 +14,7 @@ export const AddVideoCategoriesForm = ({
   id,
 }) => {
   const { videos } = useContext(Context);
+  const { register, handleSubmit, getValues } = useForm();
 
   useEffect(() => {
     (function () {
@@ -26,21 +28,15 @@ export const AddVideoCategoriesForm = ({
     })();
   }, []);
 
-  const handleCheckbox = (event) => {
-    const category = event.target.value;
-    const updatedCategoriesChecked = {
-      ...categoriesChecked,
-      [category]: !categoriesChecked?.[category],
-    };
-
-    setCategoriesChecked(updatedCategoriesChecked);
+  const handleCheckbox = () => {
+    setCategoriesChecked(getValues());
   };
 
   return (
     <FormBackground>
       <form
         className={"relative bg-purple-300 rounded py-2.5 pl-2.5 pr-16 z-20"}
-        onSubmit={handleAddVideoCategoriesForm}
+        onSubmit={handleSubmit(handleAddVideoCategoriesForm)}
       >
         <fieldset>
           <legend>Add video to existing categories</legend>
@@ -51,10 +47,11 @@ export const AddVideoCategoriesForm = ({
               return (
                 <Fragment key={category}>
                   <Checkbox
-                    value={category}
+                    category={category}
                     groupName={"categories"}
                     handleCheckbox={handleCheckbox}
                     isChecked={categoriesChecked?.[category]}
+                    register={register}
                   />
                 </Fragment>
               );

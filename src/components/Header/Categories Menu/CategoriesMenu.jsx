@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../../../context/Context";
 import CategoryButton from "./Buttons/CategoryButton";
-import { NewCategoryForm } from "./Forms/NewCategoryForm";
+import { AddCategoryForm } from "./Forms/AddCategoryForm";
 import { NewCategoryButton } from "./Buttons/NewCategoryButton";
 
 export const CategoriesMenu = () => {
@@ -31,7 +31,7 @@ export const CategoriesMenu = () => {
       })}
       <NewCategoryButton handleShowCategoryForm={handleShowNewCategoryForm} />
       {showForm && (
-        <NewCategoryForm handleShowCategoryForm={handleShowNewCategoryForm} />
+        <AddCategoryForm handleShowCategoryForm={handleShowNewCategoryForm} />
       )}
     </section>
   );

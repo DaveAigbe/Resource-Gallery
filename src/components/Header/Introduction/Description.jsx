@@ -1,5 +1,5 @@
 import React from "react";
-import VideoForm from "./Forms/VideoForm";
+import AddVideoForm from "./Forms/AddVideoForm";
 import { Icon } from "@iconify/react";
 
 const Description = () => {
@@ -26,7 +26,7 @@ const Description = () => {
             search for specific videos by title, and watch your resources
             without leaving the site!
           </p>
-          <VideoForm />
+          <AddVideoForm />
         </div>
       </section>
     </div>

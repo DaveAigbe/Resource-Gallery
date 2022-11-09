@@ -38,8 +38,7 @@ const VideoThumbnail = ({ id }) => {
     setVideos(updatedVideos);
   };
 
-  const handleAddVideoCategoriesForm = (e) => {
-    e.preventDefault();
+  const handleAddVideoCategoriesForm = () => {
     const updatedVideos = { ...videos };
 
     for (const [category, val] of Object.entries(categoriesChecked)) {

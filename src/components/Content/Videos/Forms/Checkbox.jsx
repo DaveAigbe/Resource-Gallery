@@ -1,15 +1,21 @@
-export const Checkbox = ({ value, groupName, handleCheckbox, isChecked }) => {
+export const Checkbox = ({
+  category,
+  groupName,
+  handleCheckbox,
+  isChecked,
+  register,
+}) => {
   return (
     <li>
       <input
-        onChange={handleCheckbox}
         type="checkbox"
-        id={value}
-        value={value}
+        id={category}
+        value={category}
         name={groupName}
         checked={isChecked}
+        {...register(category, { onChange: handleCheckbox })}
       />
-      <label htmlFor={value}> {value.toUpperCase()}</label>
+      <label htmlFor={category}> {category.toUpperCase()}</label>
     </li>
   );
 };
