@@ -1,5 +1,5 @@
 export const Checkbox = ({
-  category,
+  genre,
   groupName,
   handleCheckbox,
   isChecked,
@@ -9,13 +9,13 @@ export const Checkbox = ({
     <li>
       <input
         type="checkbox"
-        id={category}
-        value={category}
+        id={genre}
+        value={genre}
         name={groupName}
         checked={isChecked}
-        {...register(category, { onChange: handleCheckbox })}
+        {...register(genre, { onChange: handleCheckbox })}
       />
-      <label htmlFor={category}> {category.toUpperCase()}</label>
+      <label htmlFor={genre}> {genre.toUpperCase()}</label>
     </li>
   );
 };

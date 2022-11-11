@@ -1,11 +1,11 @@
 import { Icon } from "@iconify/react";
 import React from "react";
 
-export const AddVideoCategoriesButton = ({ handleShowVideoCategoriesForm }) => {
+export const AddVideoToGenreButton = ({ handleShowVideoGenresForm }) => {
   return (
     <button
-      title={`Add or remove video from categories.`}
-      onClick={handleShowVideoCategoriesForm}
+      title={`Add or remove video from genres.`}
+      onClick={handleShowVideoGenresForm}
     >
       <Icon
         className={

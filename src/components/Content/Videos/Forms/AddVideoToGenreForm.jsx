@@ -6,11 +6,11 @@ import { Context } from "../../../../context/Context";
 import { SubmitFormButton } from "../../../Layout/Buttons/SubmitFormButton";
 import { useForm } from "react-hook-form";
 
-export const AddVideoCategoriesForm = ({
-  handleAddVideoCategoriesForm,
-  handleShowVideoCategoriesForm,
-  categoriesChecked,
-  setCategoriesChecked,
+export const AddVideoToGenreForm = ({
+  handleAddVideoGenresForm,
+  handleShowVideoGenresForm,
+  genresChecked,
+  setGenresChecked,
   id,
 }) => {
   const { videos } = useContext(Context);
@@ -19,38 +19,38 @@ export const AddVideoCategoriesForm = ({
   useEffect(() => {
     (function () {
       let obj = {};
-      for (const category of Object.keys(videos)) {
-        if (category !== "all") {
-          obj[category] = videos[category].ids.includes(id);
+      for (const genre of Object.keys(videos)) {
+        if (genre !== "all") {
+          obj[genre] = videos[genre].ids.includes(id);
         }
       }
-      setCategoriesChecked(obj);
+      setGenresChecked(obj);
     })();
   }, []);
 
   const handleCheckbox = () => {
-    setCategoriesChecked(getValues());
+    setGenresChecked(getValues());
   };
 
   return (
     <FormBackground>
       <form
         className={"relative bg-purple-300 rounded py-2.5 pl-2.5 pr-16 z-20"}
-        onSubmit={handleSubmit(handleAddVideoCategoriesForm)}
+        onSubmit={handleSubmit(handleAddVideoGenresForm)}
       >
         <fieldset>
-          <legend>Add video to existing categories</legend>
+          <legend>Add video to existing genres</legend>
         </fieldset>
         <ul className={"my-2"}>
-          {categoriesChecked &&
-            Object.keys(categoriesChecked).map((category) => {
+          {genresChecked &&
+            Object.keys(genresChecked).map((genre) => {
               return (
-                <Fragment key={category}>
+                <Fragment key={genre}>
                   <Checkbox
-                    category={category}
-                    groupName={"categories"}
+                    genre={genre}
+                    groupName={"genres"}
                     handleCheckbox={handleCheckbox}
-                    isChecked={categoriesChecked?.[category]}
+                    isChecked={genresChecked?.[genre]}
                     register={register}
                   />
                 </Fragment>
@@ -58,7 +58,7 @@ export const AddVideoCategoriesForm = ({
             })}
         </ul>
         <SubmitFormButton text={"Submit"} />
-        <CloseFormButton handleShowForm={handleShowVideoCategoriesForm} />
+        <CloseFormButton handleShowForm={handleShowVideoGenresForm} />
       </form>
     </FormBackground>
   );

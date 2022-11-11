@@ -9,15 +9,15 @@ import { LoadingLibrary } from "./components/Content/LoadingLibrary";
 
 function App() {
   const [videos, setVideos] = useState(null);
-  const [currentCategory, setCurrentCategory] = useState("all");
-  const [categoryActive, setCategoryActive] = useState(false);
+  const [currentGenre, setCurrentGenre] = useState("all");
+  const [genreActive, setGenreActive] = useState(false);
 
   useEffect(() => {
-    handleLocalStorage("categories", videos, defaultVideos, setVideos);
+    handleLocalStorage("genres", videos, defaultVideos, setVideos);
   }, [videos]);
 
-  const handleCategoryClick = (category) => {
-    setCurrentCategory(category);
+  const handleGenreClick = (genre) => {
+    setCurrentGenre(genre);
   };
 
   return (
@@ -25,11 +25,11 @@ function App() {
       value={{
         videos,
         setVideos,
-        currentCategory,
-        setCurrentCategory,
-        categoryActive,
-        setCategoryActive,
-        handleCategoryClick,
+        currentGenre,
+        setCurrentGenre,
+        genreActive,
+        setGenreActive,
+        handleGenreClick,
       }}
     >
       <Layout>

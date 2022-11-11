@@ -1,11 +1,11 @@
 import { Icon } from "@iconify/react";
 import React from "react";
 
-export const DeleteVideoButton = ({ handleDelete, currentCategory }) => {
+export const DeleteVideoButton = ({ handleDelete, currentGenre }) => {
   return (
     <button
       title={`Delete video from ${
-        currentCategory === "all" ? "entire library." : currentCategory
+        currentGenre === "all" ? "entire library." : currentGenre
       }`}
     >
       <Icon

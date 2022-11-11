@@ -1,24 +1,24 @@
 import React, { useContext } from "react";
 import { Context } from "../../../../context/Context";
 
-const CategoryButton = ({ category, count, isCurrentCategory }) => {
-  const { categoryActive, handleCategoryClick } = useContext(Context);
+const GenreButton = ({ genre, count, isCurrentGenre }) => {
+  const { genreActive, handleGenreClick } = useContext(Context);
 
   return (
     <>
-      {!categoryActive ? (
+      {!genreActive ? (
         <button
           title={count}
-          onClick={() => handleCategoryClick(category)}
+          onClick={() => handleGenreClick(genre)}
           className={
             `${
-              isCurrentCategory ? "text-yellow-300 font-bold " : "text-white "
+              isCurrentGenre ? "text-yellow-300 font-bold " : "text-white "
             } tracking-wide bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br ` +
             "focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-300 " +
             "rounded-lg text-sm px-5 py-2.5 text-center"
           }
         >
-          {category.charAt(0).toUpperCase() + category.slice(1)}
+          {genre.charAt(0).toUpperCase() + genre.slice(1)}
         </button>
       ) : (
         <div
@@ -27,11 +27,11 @@ const CategoryButton = ({ category, count, isCurrentCategory }) => {
             "tracking-wide text-green-400 font-bold text-md pt-2 pb-2 flex items-center"
           }
         >
-          {category.charAt(0).toUpperCase() + category.slice(1)}
+          {genre.charAt(0).toUpperCase() + genre.slice(1)}
         </div>
       )}
     </>
   );
 };
 
-export default CategoryButton;
+export default GenreButton;

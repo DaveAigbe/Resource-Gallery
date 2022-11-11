@@ -1,82 +1,71 @@
 import React, { useContext, useState } from "react";
 import { Video } from "./Video";
 import { Context } from "../../../context/Context";
-import { AddVideoCategoriesButton } from "./Buttons/AddVideoCategoriesButton";
+import { AddVideoToGenreButton } from "./Buttons/AddVideoToGenreButton";
 import { DeleteVideoButton } from "./Buttons/DeleteVideoButton";
-import { AddVideoCategoriesForm } from "./Forms/AddVideoCategoriesForm";
+import { AddVideoToGenreForm } from "./Forms/AddVideoToGenreForm";
+import { useToggleActive } from "../../../hooks/useToggleActive";
 
 const VideoThumbnail = ({ id }) => {
-  // Needs to be local state so that react will not re-render entire video library which will give each video its own overlay
-  // Effectively giving each thumbnail its own state will tell react that only this thumbnail has changed, not the rest
-  const [videoPlaying, setVideoPlaying] = useState(false);
-  const { videos, setVideos, currentCategory } = useContext(Context);
-  const [showForm, setShowForm] = useState(false);
-  const [categoriesChecked, setCategoriesChecked] = useState({});
-
-  const handleActive = () => {
-    setVideoPlaying((prevState) => {
-      return !prevState;
-    });
-  };
+  const { videos, setVideos, currentGenre } = useContext(Context);
+  const [genresChecked, setGenresChecked] = useState({});
+  const { isActive: formShowing, toggleActive: toggleFormShowing } =
+    useToggleActive();
+  const { isActive: videoShowing, toggleActive: toggleVideoShowing } =
+    useToggleActive();
 
   const handleDelete = () => {
     console.log(id);
     const updatedVideos = { ...videos };
 
-    if (currentCategory === "all") {
-      for (const [category] of Object.entries(updatedVideos)) {
-        updatedVideos[category].ids = updatedVideos[category].ids.filter(
+    if (currentGenre === "all") {
+      for (const [genre] of Object.entries(updatedVideos)) {
+        updatedVideos[genre].ids = updatedVideos[genre].ids.filter(
           (currId) => currId !== id
         );
       }
     } else {
-      updatedVideos[currentCategory].ids = updatedVideos[
-        currentCategory
-      ].ids.filter((currId) => currId !== id);
+      updatedVideos[currentGenre].ids = updatedVideos[currentGenre].ids.filter(
+        (currId) => currId !== id
+      );
     }
 
     setVideos(updatedVideos);
   };
 
-  const handleAddVideoCategoriesForm = () => {
+  const handleAddVideoGenresForm = () => {
     const updatedVideos = { ...videos };
 
-    for (const [category, val] of Object.entries(categoriesChecked)) {
-      const currentIds = updatedVideos?.[category].ids;
+    for (const [genre, val] of Object.entries(genresChecked)) {
+      const currentIds = updatedVideos?.[genre].ids;
 
       if (val) {
         if (!currentIds.includes(id)) {
-          updatedVideos[category].ids = [id, ...updatedVideos[category].ids];
+          updatedVideos[genre].ids = [id, ...updatedVideos[genre].ids];
           setVideos(updatedVideos);
         }
       } else {
         if (currentIds.includes(id)) {
-          updatedVideos[category].ids = currentIds.filter(
+          updatedVideos[genre].ids = currentIds.filter(
             (currId) => currId !== id
           );
           setVideos(updatedVideos);
         }
       }
     }
-    handleShowVideoCategoriesForm();
-  };
-
-  const handleShowVideoCategoriesForm = () => {
-    setShowForm((prevState) => {
-      return !prevState;
-    });
+    toggleFormShowing();
   };
 
   return (
     <section
       className={`${
-        !videoPlaying &&
-        !showForm &&
+        !videoShowing &&
+        !formShowing &&
         "hover:scale-105 transition-all ease-in-out"
       } relative`}
     >
       <img
-        onClick={handleActive}
+        onClick={toggleVideoShowing}
         className={
           "cursor-pointer rounded-2xl md:w-330 md:h-186 c-md:w-380 c-md:h-214 lg:w-460 lg:h-259 c-xl:w-560 c-xl:h-315"
         }
@@ -86,19 +75,17 @@ const VideoThumbnail = ({ id }) => {
       <section>
         <DeleteVideoButton
           handleDelete={handleDelete}
-          currentCategory={currentCategory}
+          currentGenre={currentGenre}
         />
-        <AddVideoCategoriesButton
-          handleShowVideoCategoriesForm={handleShowVideoCategoriesForm}
-        />
+        <AddVideoToGenreButton handleShowVideoGenresForm={toggleFormShowing} />
       </section>
-      {videoPlaying && <Video id={id} handleActive={handleActive} />}
-      {showForm && (
-        <AddVideoCategoriesForm
-          handleShowVideoCategoriesForm={handleShowVideoCategoriesForm}
-          handleAddVideoCategoriesForm={handleAddVideoCategoriesForm}
-          categoriesChecked={categoriesChecked}
-          setCategoriesChecked={setCategoriesChecked}
+      {videoShowing && <Video id={id} handleActive={toggleVideoShowing} />}
+      {formShowing && (
+        <AddVideoToGenreForm
+          handleShowVideoGenresForm={toggleFormShowing}
+          handleAddVideoGenresForm={handleAddVideoGenresForm}
+          genresChecked={genresChecked}
+          setGenresChecked={setGenresChecked}
           id={id}
         />
       )}
@@ -107,5 +94,3 @@ const VideoThumbnail = ({ id }) => {
 };
 
 export default VideoThumbnail;
-
-// "rounded-2xl md:w-330 md:h-186 my-md:w-380 my-md:h-214 lg:w-460 lg:h-259 my-lg:w-560 my-lg:h-315"

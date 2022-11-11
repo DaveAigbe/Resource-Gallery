@@ -4,13 +4,13 @@ import VideoThumbnail from "./VideoThumbnail";
 import { EmptyLibrary } from "../EmptyLibrary";
 
 const MyComponent = () => {
-  const { videos, currentCategory } = useContext(Context);
+  const { videos, currentGenre } = useContext(Context);
 
   return (
     <section className={"flex justify-center gap-6 flex-wrap max-w-8xl"}>
-      {videos[currentCategory].ids.length > 0 ? (
+      {videos[currentGenre].ids.length > 0 ? (
         <>
-          {videos[currentCategory].ids.map((id) => {
+          {videos[currentGenre].ids.map((id) => {
             return (
               <React.Fragment key={id}>
                 <VideoThumbnail id={id} />

@@ -7,57 +7,54 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-export const AddCategoryForm = ({ handleShowCategoryForm }) => {
+export const AddGenreForm = ({ handleShowGenreForm }) => {
   const { videos, setVideos } = useContext(Context);
 
   const schema = yup.object().shape({
-    category: yup.string().required("Category must have a name."),
+    genre: yup.string().required("genre must have a name."),
   });
   const { register, handleSubmit, setFocus } = useForm({
     resolver: yupResolver(schema),
   });
 
-  const handleSubmitCategory = (data) => {
-    const categoryName = data.category.toLowerCase();
+  const handleSubmitGenre = (data) => {
+    const genreName = data.genre.toLowerCase();
 
-    if (!videos[categoryName]) {
-      const updatedVideos = { ...videos, [categoryName]: { ids: [] } };
+    if (!videos[genreName]) {
+      const updatedVideos = { ...videos, [genreName]: { ids: [] } };
       setVideos(updatedVideos);
-      handleShowCategoryForm();
+      handleShowGenreForm();
     } else {
-      alert("Existing category cannot be re-added.");
+      alert("Existing genre cannot be re-added.");
     }
   };
 
   useEffect(() => {
-    setFocus("category");
+    setFocus("genre");
   }, [setFocus]);
 
   return (
     <FormBackground>
       <form
         className={"relative bg-purple-300 rounded p-2.5 z-50"}
-        onSubmit={handleSubmit(handleSubmitCategory)}
+        onSubmit={handleSubmit(handleSubmitGenre)}
       >
-        <label
-          className={"text-gray-700 block text-sm mb-2"}
-          htmlFor="category"
-        >
-          New Category
+        <label className={"text-gray-700 block text-sm mb-2"} htmlFor="genre">
+          New genre
         </label>
         <div className={"flex gap-2"}>
           <input
-            id={"category"}
+            id={"genre"}
             className={
               "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-400 focus:shadow-outline"
             }
             type="text"
-            placeholder={"Enter category name..."}
+            placeholder={"Enter genre name..."}
             autoComplete={"off"}
-            {...register("category")}
+            {...register("genre")}
           />
           <SubmitFormButton text={"Create"} />
-          <CloseFormButton handleShowForm={handleShowCategoryForm} />
+          <CloseFormButton handleShowForm={handleShowGenreForm} />
         </div>
       </form>
     </FormBackground>
