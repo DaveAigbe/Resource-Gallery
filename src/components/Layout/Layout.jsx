@@ -7,14 +7,16 @@ import { Context } from "../../context/Context";
 const Layout = ({ children }) => {
   const { videos } = useContext(Context);
 
+  const backgroundStyle = {
+    backgroundImage: "url('/images/blob-scene-haikeiV2.svg')",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+  };
+
   return (
     <div
       className={`min-h-screen min-w-screen font-roboto p-10 flex flex-col gap-10 items-center justify-center`}
-      style={{
-        backgroundImage: "url('/images/blob-scene-haikeiV2.svg')",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-      }}
+      style={backgroundStyle}
     >
       {videos ? (
         <>

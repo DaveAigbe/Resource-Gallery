@@ -34,7 +34,7 @@ export const AddGenreForm = ({ handleShowGenreForm }) => {
   }, [setFocus]);
 
   return (
-    <FormBackground>
+    <FormBackground closeForm={handleShowGenreForm}>
       <form
         className={"relative bg-purple-300 rounded p-2.5 z-50"}
         onSubmit={handleSubmit(handleSubmitGenre)}

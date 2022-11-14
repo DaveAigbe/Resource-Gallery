@@ -33,7 +33,7 @@ export const AddVideoToGenreForm = ({
   };
 
   return (
-    <FormBackground>
+    <FormBackground closeForm={handleShowVideoGenresForm}>
       <form
         className={"relative bg-purple-300 rounded py-2.5 pl-2.5 pr-16 z-20"}
         onSubmit={handleSubmit(handleAddVideoGenresForm)}
