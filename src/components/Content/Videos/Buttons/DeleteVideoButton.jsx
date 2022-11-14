@@ -1,11 +1,14 @@
 import { Icon } from "@iconify/react";
 import React from "react";
+import { titleCaseConverter } from "../../../../utils/titleCaseConverter";
 
 export const DeleteVideoButton = ({ handleDelete, currentGenre }) => {
   return (
     <button
       title={`Delete video from ${
-        currentGenre === "all" ? "entire library." : currentGenre
+        currentGenre === "all"
+          ? "entire library."
+          : titleCaseConverter(currentGenre)
       }`}
     >
       <Icon

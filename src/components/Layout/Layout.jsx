@@ -18,13 +18,11 @@ const Layout = ({ children }) => {
       className={`min-h-screen min-w-screen font-roboto p-10 flex flex-col gap-10 items-center justify-center`}
       style={backgroundStyle}
     >
-      {videos ? (
+      {videos && (
         <>
           <GenreMenu />
           <MenuIcon />
         </>
-      ) : (
-        <></>
       )}
       <Profile />
       {children}

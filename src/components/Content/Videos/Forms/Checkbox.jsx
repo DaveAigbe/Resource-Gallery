@@ -1,3 +1,5 @@
+import { titleCaseConverter } from "../../../../utils/titleCaseConverter";
+
 export const Checkbox = ({
   genre,
   groupName,
@@ -15,7 +17,7 @@ export const Checkbox = ({
         checked={isChecked}
         {...register(genre, { onChange: handleCheckbox })}
       />
-      <label htmlFor={genre}> {genre.toUpperCase()}</label>
+      <label htmlFor={genre}> {titleCaseConverter(genre)}</label>
     </li>
   );
 };

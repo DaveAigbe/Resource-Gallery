@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Context } from "../../../../context/Context";
+import { titleCaseConverter } from "../../../../utils/titleCaseConverter";
 
 const GenreButton = ({ genre, count, isCurrentGenre }) => {
   const { genreActive, handleGenreClick } = useContext(Context);
@@ -18,7 +19,7 @@ const GenreButton = ({ genre, count, isCurrentGenre }) => {
             "rounded-lg text-sm px-5 py-2.5 text-center"
           }
         >
-          {genre.charAt(0).toUpperCase() + genre.slice(1)}
+          {titleCaseConverter(genre)}
         </button>
       ) : (
         <div
@@ -27,7 +28,7 @@ const GenreButton = ({ genre, count, isCurrentGenre }) => {
             "tracking-wide text-green-400 font-bold text-md pt-2 pb-2 flex items-center"
           }
         >
-          {genre.charAt(0).toUpperCase() + genre.slice(1)}
+          {titleCaseConverter(genre)}
         </div>
       )}
     </>
