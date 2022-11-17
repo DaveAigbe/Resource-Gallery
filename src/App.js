@@ -6,11 +6,13 @@ import { Context } from "./context/Context";
 import handleLocalStorage from "./utils/updateLocalStorage";
 import { defaultVideos } from "./data/defaults";
 import { LoadingLibrary } from "./components/Content/LoadingLibrary";
+import { useToggleActive } from "./hooks/useToggleActive";
 
 function App() {
   const [videos, setVideos] = useState(null);
   const [currentGenre, setCurrentGenre] = useState("all");
-  const [genreActive, setGenreActive] = useState(false);
+  const { isActive: genreActive, toggleActive: toggleGenreActive } =
+    useToggleActive();
 
   useEffect(() => {
     handleLocalStorage("genres", videos, defaultVideos, setVideos);
@@ -28,7 +30,7 @@ function App() {
         currentGenre,
         setCurrentGenre,
         genreActive,
-        setGenreActive,
+        toggleGenreActive,
         handleGenreClick,
       }}
     >

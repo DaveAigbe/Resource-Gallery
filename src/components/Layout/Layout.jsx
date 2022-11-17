@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { MenuIcon } from "./Mobile Menu/MenuIcon";
+import { MobileMenuHamburgerIcon } from "./Mobile Menu/MobileMenuHamburgerIcon";
 import { GenreMenu } from "../Header/Genres-Menu/GenreMenu";
 import { Profile } from "./Profile";
 import { Context } from "../../context/Context";
@@ -21,7 +21,7 @@ const Layout = ({ children }) => {
       {videos && (
         <>
           <GenreMenu />
-          <MenuIcon />
+          <MobileMenuHamburgerIcon />
         </>
       )}
       <Profile />

@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { Context } from "../../../context/Context";
-import GenreButton from "./Buttons/GenreButton";
+import GenreButtonLogic from "./Buttons/GenreButtonLogic";
 import { AddGenreForm } from "./Forms/AddGenreForm";
-import { AddGenreButton } from "./Buttons/AddGenreButton";
+import { AddGenreButton } from "./Buttons/Add/AddGenreButton";
 import { useToggleActive } from "../../../hooks/useToggleActive";
 
 export const GenreMenu = () => {
@@ -12,12 +12,12 @@ export const GenreMenu = () => {
 
   return (
     <section
-      className={"hidden sm:flex absolute top-5 text-xl gap-4 items-center"}
+      className={"hidden md:flex absolute top-5 text-xl gap-4 items-center"}
     >
       {Object.keys(videos).map((genre) => {
         return (
           <React.Fragment key={genre}>
-            <GenreButton
+            <GenreButtonLogic
               genre={genre}
               count={videos[genre].ids.length}
               isCurrentGenre={genre === currentGenre}
