@@ -36,6 +36,9 @@ module.exports = {
       maxWidth: {
         "8xl": "113rem",
       },
+      top: {
+        "100p": "100%"
+      }
     },
   },
   plugins: [],

@@ -1,6 +1,6 @@
-# Smart Library
+# Smart LibraryController
 
-#### Smart Library is a collection of all the video resources for various topics collected and organized in one place!
+#### Smart LibraryController is a collection of all the video resources for various topics collected and organized in one place!
 ![image](https://user-images.githubusercontent.com/90881175/197916986-3c8f4ee3-8180-4900-8e0b-2110ae0b7ae9.png)
 
 
