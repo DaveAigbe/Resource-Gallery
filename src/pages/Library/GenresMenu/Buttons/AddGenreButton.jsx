@@ -5,8 +5,9 @@ export const AddGenreButton = ({ handleShowGenreForm }) => {
   return (
     <div
         title={"Add genre"}
-        className={"relative after:scale-0 hover:after:scale-100 after:origin-top after:transition-all after:duration-150 after:ease-in-out  after:content-['Add_New_Genre'] after:text-white after:text-sm after:absolute after:top-100p after:left-0 after:right-0 " +
-            "after:border after:border-black after:p-4 after:text-center after:bg-gray-600 after:rounded after:w-fit"}
+        className={"relative after:scale-0 hover:after:scale-100 after:content-['Add_New_Genre']" +
+            " after:border after:border-purple-400 after:bg-purple-600 after:rounded after:text-white after:text-sm after:p-2 after:text-center after:w-fit after:mt-1" +
+            " after:origin-top after:transition-all after:duration-150 after:ease-in-out after:absolute after:top-100p"}
     >
       <Icon
         onClick={handleShowGenreForm}
