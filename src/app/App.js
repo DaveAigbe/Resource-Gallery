@@ -40,7 +40,6 @@ function App() {
                     <Routes>
                         <Route path={'/'} element={<Home/>}/>
                         <Route path={'/library'} element={<LibraryController/>}>
-                            <Route path={currentGenre} element={<LibraryController/>}/>
                         </Route>
                         <Route path={'/account'} element={<Account/>}/>
                     </Routes>
